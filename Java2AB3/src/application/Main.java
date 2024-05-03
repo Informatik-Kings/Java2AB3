@@ -1,21 +1,18 @@
 package application;
 
-import java.io.File;
-import java.io.PrintStream;
-
-import exception.*;
+import exception.InvalidSourceException;
+import exception.LoggerFX;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 /**
  * 
- * TODO comment
+ * Testet die Funktionalität einer {@link RegExGridPane}.
+ * Enthält ein Textfeld, welches 
  *
  * @author Markus Suchalla, Cheng-Fu Ye, Dominik Schwabe
  */
@@ -35,7 +32,7 @@ public class Main extends Application
 
    /**
     * Wird durch JavaFX-Runtime nach dem Aufruf der init-Methode aufgerufen.
-    * Initialisert die primaryStage mit TODO comment
+    * Initialisert die primaryStage mit einer {@link RegExGridPane}
     */
    @Override
    public void start(Stage primaryStage) throws InvalidSourceException
@@ -47,7 +44,7 @@ public class Main extends Application
             throw new InvalidSourceException("Main.start(Stage primaryStage): Ungültige Null-Referenz zu PrimaryStage!");
          }
 
-         Pane root = new Pane();
+         RegExGridPane root = new RegExGridPane();
          Scene scene = new Scene(root,600,300);
          primaryStage.setTitle("Main");
          primaryStage.setScene(scene);
