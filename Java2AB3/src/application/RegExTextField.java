@@ -30,18 +30,18 @@ public class RegExTextField extends TextField
     *
     * @param regex Regulärer Ausdruck, gegen welchen geprüft werden soll.
     * @param label Label, welches das Textfeld beschreibt und den Validierungszustand anzeigt.
-    * @throws InvalidSourceException Wenn eine Null-Referenz zu regex übergeben wird.
+    * @throws InvalidSourceException Wenn eine Null-Referenz zu regex oder label übergeben wird.
     */
    public RegExTextField(String regex, Label label) throws InvalidSourceException
    {
-      if(regex == null) {
-         throw new InvalidSourceException("RegExTextField(String regex): Ungültige Null-Referenz zu regex!");
+      if(label == null) {
+         throw new InvalidSourceException("RegExTextField(String regex, Label label): Ungültige Null-Referenz zu label!");
       }
-      this.label = label;
-      getChildren().add(label);
       RegExValidator validator = new RegExValidator(regex);
       validator.addStatusListener(new ChangeErrorIconStatusListener());
       textProperty().addListener(validator);
+      this.label = label;
+      getChildren().add(label);
    }
 
    /**
@@ -57,9 +57,9 @@ public class RegExTextField extends TextField
       {
          if (!e.isStatus()) {
             try {
-               //TODO FILE SOLL NICHT VERWENDET WERDEN. ÄNDERN!
+               //TODO FILE SOLL NICHT VERWENDET WERDEN. ÄNDERN!!!
                String path = new File("img/error.png").toURI().toURL().toString();
-               label.setGraphic(new ImageView(new Image("img/error.png")));
+               label.setGraphic(new ImageView(new Image(path)));
             } catch (MalformedURLException e1) {
                e1.printStackTrace();
             }
