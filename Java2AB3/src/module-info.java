@@ -10,7 +10,7 @@ module Java2AB3
 
    requires javafx.base;
 
-   requires javafx.controls;
+   requires transitive javafx.controls;
 
    requires javafx.graphics;
 }

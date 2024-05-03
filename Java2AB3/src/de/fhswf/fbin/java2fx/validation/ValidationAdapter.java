@@ -5,7 +5,7 @@ import java.util.List;
 
 import javafx.beans.value.ObservableValue;
 
-abstract class ValidationAdapter<T> implements Validator<T>
+public abstract class ValidationAdapter<T> implements Validator<T>
 {
    private List<StatusListener<T>> listeners;
 
