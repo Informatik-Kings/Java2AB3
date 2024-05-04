@@ -1,8 +1,5 @@
 package application;
 
-import java.io.File;
-import java.net.MalformedURLException;
-
 import de.fhswf.fbin.java2fx.validation.StatusEvent;
 import de.fhswf.fbin.java2fx.validation.StatusListener;
 import exception.InvalidSourceException;
@@ -57,10 +54,9 @@ public class RegExTextField extends TextField
       {
          if (!e.isStatus()) {
             try {
-               //TODO FILE SOLL NICHT VERWENDET WERDEN. ÄNDERN!!!
-               String path = new File("img/error.png").toURI().toURL().toString();
+               String path = getClass().getResource("/error.png").toExternalForm();
                label.setGraphic(new ImageView(new Image(path)));
-            } catch (MalformedURLException e1) {
+            } catch (Exception e1) {
                e1.printStackTrace();
             }
          }
