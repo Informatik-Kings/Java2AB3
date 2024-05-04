@@ -10,6 +10,9 @@ import exception.InvalidSourceException;
  *
  * Die Klasse ist für das Prüfen gegen einen regulären Ausdruck zuständig.
  * Dies wird erreicht, in dem ein RegEx-Pattern einmal kompiliert wird und so effektiv immer wieder damit geprüft wird.
+ * 
+ * RegExValidator steht hierbei für den Controller-Teil des MVC-Patterns. Es bekommt die Nutzereingaben und prüft/verarbeitet diese.
+ * Bei Fehlern wird das Modell informiert, dass ein Fehler vorliegt.
  *
  * @author Markus Suchalla, Cheng-Fu Ye, Dominik Schwabe
  */
