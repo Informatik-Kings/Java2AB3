@@ -59,12 +59,8 @@ public class RegExTextField extends TextField
       public void stateChanged(StatusEvent<String> e)
       {
          if (!e.isStatus()) {
-            try {
-               String path = getClass().getResource("/error.png").toExternalForm();
-               label.setGraphic(new ImageView(new Image(path)));
-            } catch (Exception e1) {
-               e1.printStackTrace();
-            }
+            String path = getClass().getResource("/error.png").toExternalForm();
+            label.setGraphic(new ImageView(new Image(path)));
          }
          else {
             label.setGraphic(null);
