@@ -23,6 +23,7 @@ import javafx.scene.image.ImageView;
 public class RegExTextField extends TextField
 {
    private Label label;
+   private ImageView img;
    /**
     * 
     * Erstellt das Textfeld, welches gegen den regulären Ausdruck prüft. Es erscheint ein Icon, wenn eine Eingabe gemacht wird,
@@ -59,8 +60,10 @@ public class RegExTextField extends TextField
       public void stateChanged(StatusEvent<String> e)
       {
          if (!e.isStatus()) {
-            String path = getClass().getResource("/error.png").toExternalForm();
-            label.setGraphic(new ImageView(new Image(path)));
+            if(img == null) {
+               img = new ImageView(new Image(getClass().getResource("/error.png").toExternalForm()));               
+            }
+            label.setGraphic(img);
          }
          else {
             label.setGraphic(null);
