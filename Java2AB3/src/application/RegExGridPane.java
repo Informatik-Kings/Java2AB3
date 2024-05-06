@@ -28,15 +28,15 @@ public class RegExGridPane extends GridPane
    public RegExGridPane() throws InvalidSourceException
    {      
 
-      ColumnConstraints column1 = new ColumnConstraints(50, 50,
-            Double.MAX_VALUE);
-      ColumnConstraints column2 = new ColumnConstraints(100, 200,
-            Double.MAX_VALUE);
+      ColumnConstraints column1 = new ColumnConstraints(75, 75,
+            75);
+      ColumnConstraints column2 = new ColumnConstraints();
+      column2.setPercentWidth(25);
       column2.setHgrow(Priority.ALWAYS);
       getColumnConstraints().addAll(column1, column2);
 
       //Beispiel RegEx welches prüft ob nur Zahlen eingegeben werden
-      Label label = new Label("Nums");
+      Label label = new Label("Zahlen");
       TextField textField = new RegExTextField("[0-9]+", label);
       label.setAlignment(Pos.CENTER);
       label.setContentDisplay(ContentDisplay.RIGHT);
@@ -46,7 +46,7 @@ public class RegExGridPane extends GridPane
       
       
       //Aufgabenteil für E-Mail RegEx
-      label = new Label("Mail");
+      label = new Label("E-Mail");
       textField = new EmailTextField(label);
       label.setAlignment(Pos.CENTER);
       label.setContentDisplay(ContentDisplay.RIGHT);
