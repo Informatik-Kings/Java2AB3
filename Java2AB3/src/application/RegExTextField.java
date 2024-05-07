@@ -1,5 +1,7 @@
 package application;
 
+import java.net.URL;
+
 import de.fhswf.fbin.java2fx.validation.StatusEvent;
 import de.fhswf.fbin.java2fx.validation.StatusListener;
 import exception.InvalidSourceException;
@@ -55,22 +57,27 @@ public class RegExTextField extends TextField
     * @author Markus Suchalla, Cheng-Fu Ye, Dominik Schwabe
     */
    private class ChangeErrorIconStatusListener implements StatusListener<String>{
-
+      
+      /**
+       * 
+       * Lädt für jede Instanz eigenes Error-Icon.
+       * @throws InvalidSourceException Wenn das Icon nicht korrekt geladen werden kann.
+       *
+       */
+      public ChangeErrorIconStatusListener() throws InvalidSourceException
+      {
+         URL ressource = getClass().getResource("/error.png");
+         if(ressource == null) {
+            throw new InvalidSourceException("ChangeErrorIconStatusListener(): Fehler beim Laden des Error-Icons!");
+         }
+         img = new ImageView(new Image(ressource.toExternalForm()));               
+      }
+      
       @Override
       public void stateChanged(StatusEvent<String> e)
       {
-         if (!e.isStatus()) {
-            if(img == null) {
-               img = new ImageView(new Image(getClass().getResource("/error.png").toExternalForm()));               
-            }
-            label.setGraphic(img);
-         }
-         else {
-            label.setGraphic(null);
-         }           
+         label.setGraphic(e.isStatus() ? null : img); 
       }
-      
+
    }
-
 }
-

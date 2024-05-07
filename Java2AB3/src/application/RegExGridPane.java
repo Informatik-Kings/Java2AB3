@@ -28,8 +28,8 @@ public class RegExGridPane extends GridPane
    public RegExGridPane() throws InvalidSourceException
    {      
 
-      ColumnConstraints column1 = new ColumnConstraints(75, 75,
-            75);
+      ColumnConstraints column1 = new ColumnConstraints(80, 80,
+            80);
       ColumnConstraints column2 = new ColumnConstraints();
       column2.setPercentWidth(25);
       column2.setHgrow(Priority.ALWAYS);

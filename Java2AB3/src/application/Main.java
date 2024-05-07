@@ -51,7 +51,7 @@ public class Main extends Application
          primaryStage.show();
 
       }
-      catch (InvalidSourceException e)
+      catch (Exception e)
       {
          Alert alert =
                new Alert(AlertType.ERROR, "Unbekannter Fehler \nSenden Sie den Log an den Entwickler!", ButtonType.OK);
